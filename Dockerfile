@@ -4,6 +4,7 @@ FROM arm64v8/ubuntu:20.04
 # Set environment variables
 ENV DEBIAN_FRONTEND=noninteractive
 ENV PYTHONUNBUFFERED=1
+ENV MAKEFLAGS="-j1"
 
 # Install the necessary dependencies
 RUN apt-get update && \
