@@ -22,6 +22,20 @@ RUN apt-get update && \
 # Set up the working directory
 WORKDIR /cling
 
+# Clone the source code
+RUN git clone http://root.cern.ch/git/llvm.git src/llvm && \
+    cd src/llvm && \
+    git checkout cling-patches && \
+    cd tools && \
+    git clone http://root.cern.ch/git/clang.git && \
+    cd clang && \
+    git checkout cling-patches && \
+    cd .. && \
+    git clone http://root.cern.ch/git/cling.git && \
+    cd cling && \
+    git checkout master && \
+    cd ../../..
+
 # Copy the build script into the image
 COPY build.sh /cling/build.sh
 
