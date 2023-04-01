@@ -20,7 +20,7 @@ import multiprocessing
 print (multiprocessing.cpu_count())
 EOF
 )`
-cores=${1:-${allcores}}
+cores=1
 echo Using $cores cores.
 
 function update {
